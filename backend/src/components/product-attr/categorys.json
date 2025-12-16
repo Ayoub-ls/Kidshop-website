@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_attr_categorys",
+  "info": {
+    "displayName": "categorys"
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "string",
+      "unique": true
+    }
+  },
+  "config": {}
+}
