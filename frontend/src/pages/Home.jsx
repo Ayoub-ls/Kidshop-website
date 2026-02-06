@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { Link } from 'react-router-dom'
-import Product from '../components/Product'
 import { ProductContext } from '../context/GlobalContext'
 import { useQuery } from '@apollo/client/react'
 import SearchBar from '../components/SearchBar'
-import { ProductList } from '../components/ProductList'
+import  ProductList  from '../components/ProductList'
 
 const Home = () => {
   const {GET_PRODUCTS, categories} = useContext(ProductContext)

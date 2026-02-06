@@ -2,7 +2,7 @@ import React from 'react';
 import { useMemo } from 'react'
 import Product from './Product';
 
-export const ProductList = ({data, selectedCategorie}) => {
+const ProductList = ({data, selectedCategorie}) => {
   
 
 const categoryProducts = useMemo(() => {
@@ -31,3 +31,4 @@ const categoryProducts = useMemo(() => {
     </div>
   )
 }
+export default ProductList
