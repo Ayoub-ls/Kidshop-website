@@ -9,6 +9,7 @@
  import PlaceOrder from './pages/PlaceOrder';
  import Login from './pages/Login';
 export const STRAPI_URL = import.meta.env.VITE_STRAPI_URL;
+console.log(STRAPI_URL);
 
 
 function App() {
