@@ -6,19 +6,6 @@ import { STRAPI_URL } from "../App";
 
 export const ProductContext = createContext();
 
-const GET_PRODUCTS = gql`
-query {
-  products {
-    documentId,
-    name,
-    images {
-      url
-    },
-    date
-  }
-}
-`
-
 const GlobalContext = ({ children }) => {
   const [token, setToken] = useState('')
   const navigate = useNavigate()
@@ -163,7 +150,6 @@ console.log(getCart(token));
   },[])
   
   const value = {
-    GET_PRODUCTS,
     categories,
     currency,
     fee,

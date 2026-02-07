@@ -18,8 +18,10 @@ function App() {
     <div className='h-fit pb-20 min-h-screen'>
         <ToastContainer/>
         <Routes>
-          <Route path='/' element={<div><Header page={'Home'}/><Home/><Navbar/></div>}/>{/*
-          <Route path='cart/' element={<div><Header page={'Card'}/><Card/><Navbar/></div>}/>*/}
+          <Route path='/' element={<div><Header page={'Home'}/><Home/><Navbar/></div>}/>
+          {/*
+          <Route path='cart/' element={<div><Header page={'Card'}/><Card/><Navbar/></div>}/>
+          */}
           <Route path='product/:id/' element={<ProductPage/>}/>
           <Route path='place-order/' element={<div><Header page={'Place Order'}/><PlaceOrder/><Navbar/></div>}/>
           <Route path='login/' element={<div><Header page={'Login'}/><Login/><Navbar/></div>}/>

@@ -32,7 +32,7 @@ const SearchBar = ({data}) => {
               <Link onClick={() => {
                   setSearchValue("");
               }}
-                  to={`/product/${product._id}`} key={index} className='block p-2 hover:bg-gray-100'>
+                  to={`/product/${product.documentID}`} key={index} className='block p-2 hover:bg-gray-100'>
                   {product.name}
               </Link>
           )): null}

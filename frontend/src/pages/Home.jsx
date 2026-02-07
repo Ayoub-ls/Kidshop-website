@@ -5,20 +5,38 @@ import { ProductContext } from '../context/GlobalContext'
 import { useQuery } from '@apollo/client/react'
 import SearchBar from '../components/SearchBar'
 import  ProductList  from '../components/ProductList'
+import { gql } from '@apollo/client'
 
+const GET_PRODUCTS = gql`
+query {
+  products {
+    documentId,
+    name,
+    images {
+      url
+    },
+    date
+  }
+}
+`
 const Home = () => {
-  const {GET_PRODUCTS, categories} = useContext(ProductContext)
+  const {categories} = useContext(ProductContext)
   const [selectedCategorie, setSelectedCategorie] = useState('All')
   const {data, error, loading} = useQuery(GET_PRODUCTS)
 
 
-  if (error) {
-    return
+    if (loading) {
+    return <h2 className="mx-auto px-1">Loading...</h2>;
   }
+  
+  if (error) {
+    return <h1 className="text-red-500">{error.message}</h1>;
+  }
+  
   return (
     <div className='flex flex-col gap-y-9 items-center'>
       {/* search bar */}
-        {loading ? <h2>Loading</h2> : <SearchBar data={data}/>}
+        <SearchBar data={data}/>
       {/*end search bar */}
       {/* sold */}
       <div className='w-91.25 shadow gap-3 bg-main justify-between items-center flex rounded-sold h-42'>
@@ -39,7 +57,7 @@ const Home = () => {
             ))
           }
         </div>
-         {loading ? <h2>Loading</h2> : <ProductList selectedCategorie={selectedCategorie} data={data}/>}
+         <ProductList selectedCategorie={selectedCategorie} data={data}/>
       </div>
       {/* end products */}
     </div>
