@@ -7,7 +7,7 @@
   "attributes": {
     "category": {
       "type": "string",
-      "unique": true
+      "unique": false
     }
   },
   "config": {}
