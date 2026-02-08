@@ -3,6 +3,8 @@ import { assets } from "../assets/assets"
 import { STRAPI_URL } from "../App"
 
 const Product = ({product}) => {
+    console.log(product);
+    
   return (
     <Link to={`/product/${product.documentId}`} className='w-37.5 block'>
         <img className='w-full rounded-product' src={STRAPI_URL + product.images[0].url} />
