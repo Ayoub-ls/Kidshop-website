@@ -1,8 +1,17 @@
-module.exports = {
-  'upload': { // Add this section
+module.exports = ({ env }) => ({
+  upload: {
     config: {
-      provider: 'provider-upload-cloudimage',
-      providerOptions: {},
+      provider: 'cloudinary',
+      providerOptions: {
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET'),
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
     },
   },
-};
+});
