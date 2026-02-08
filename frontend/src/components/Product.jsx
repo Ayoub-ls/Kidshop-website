@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom"
 import { assets } from "../assets/assets"
-import { STRAPI_URL } from "../App"
 
 const Product = ({product}) => {
-    console.log(product);
-    
   return (
     <Link to={`/product/${product.documentId}`} className='w-37.5 block'>
-        <img className='w-full rounded-product' src={STRAPI_URL + product.images[0].url} />
+        <img className='w-full rounded-product' src={product.images[0].url} />
         <div className='py-2 px-3.5 flex justify-between items-center'>
             <div>
                 <h1 className='my-1.5 text-sm text-blue-950 font-bold'>{product.name}</h1>

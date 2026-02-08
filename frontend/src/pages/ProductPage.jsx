@@ -43,7 +43,7 @@ const ProductPage = () => {
   // convert strapi image urls to full urls
   const product = data?.product;
   const images =
-    product?.images?.map((img) => STRAPI_URL + img.url) || [];
+    product?.images?.map((img) => img.url) || [];
 
   return (
     <div>
