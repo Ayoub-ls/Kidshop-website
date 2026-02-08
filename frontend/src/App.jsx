@@ -20,7 +20,8 @@ function App() {
           <Route path='cart/' element={<div><Header page={'Card'}/><Card/><Navbar/></div>}/>
           */}
           <Route path='product/:documentId/' element={<ProductPage/>}/>
-          <Route path='place-order/' element={<div><Header page={'Place Order'}/><PlaceOrder/><Navbar/></div>}/>
+          <Route path='place-order/:documentId/' element={<div><Header page={'Place Order'}/><PlaceOrder/><Navbar/></div>}/>
+          <Route path='place-order-by-cart/' element={<div><Header page={'Place Order'}/><PlaceOrder/><Navbar/></div>}/>
           <Route path='login/' element={<div><Header page={'Login'}/><Login/><Navbar/></div>}/>
         </Routes>
     </div>

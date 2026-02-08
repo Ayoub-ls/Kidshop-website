@@ -132,6 +132,7 @@ const addToCart = async (
 console.log(getCart(token));
 
 */}
+
   
   const getTotalPrice = () => {
     let totalPrice = 0;

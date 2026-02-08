@@ -2,9 +2,23 @@ import React, { useContext, useState } from 'react'
 import { algerianWilayas } from '../assets/assets'
 import { ProductContext } from '../context/GlobalContext'
 import { toast } from 'react-toastify'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@apollo/client/react'
+import { gql } from '@apollo/client'
+
+const GET_PRODUCT = gql`
+  query GetProduct($documentId: ID!) {
+    product(documentId: $documentId) {
+      documentId
+      name
+      price
+    }
+  }
+`;
 
 const PlaceOrder = () => {
   const {getTotalPrice, currency, token, fee} = useContext(ProductContext)
+  const { documentId } = useParams();
   const [formData, setFormData] = useState({
     name:'',
     phone:'',
@@ -18,6 +32,12 @@ const PlaceOrder = () => {
   const onSubmitHandler = async(e)=>{
     e.preventDefault()
   }
+    const { data, loading, error } = useQuery(GET_PRODUCT, {
+      variables: { documentId: documentId },
+    });
+  
+    if (loading) return <p className="p-4">Loading...</p>;
+    if (error) return <p className="p-4">Error: {error.message}</p>;
   return (
     <div className='mt-20'>
         <form onSubmit={(e) => onSubmitHandler(e)} className='flex flex-col justify-center items-center gap-3 '>
@@ -34,7 +54,7 @@ const PlaceOrder = () => {
           <div className='flex gap-16 mx-10'>
             <div className='text-center'>
                 <h2 className='font-semibold text-gray-400 mb-1.5 text-sm'>Total Price</h2>
-                <h1 className='font-bold text-3xl'>{getTotalPrice()} {currency}</h1>
+                <h1 className='font-bold text-3xl'>{data.product.price} {currency}</h1>
             </div>
             <button type='submit' className='text-xl flex flex-1 items-center rounded-full bg-main px-6 justify-center '>Order</button>
           </div>

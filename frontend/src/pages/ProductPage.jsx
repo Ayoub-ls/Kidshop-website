@@ -29,8 +29,8 @@ const ProductPage = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState("");
 
-  const { documentId } = useParams(); // this is your documentId
-  const { currency, onClickOrder, addToCart } =
+  const { documentId } = useParams(); // documentId
+  const { currency, navigate, addToCart } =
     useContext(ProductContext);
 
   const { data, loading, error } = useQuery(GET_PRODUCT, {
@@ -113,7 +113,7 @@ const ProductPage = () => {
       {/* buy btn */}
       <div className="px-5.5 flex justify-center w-full gap-8">
         <button
-          onClick={() => onClickOrder(id, selectedSize)}
+          onClick={() => navigate(`place-order/${documentId}`)}
           className="text-xl flex flex-1 items-center rounded-full bg-main px-6 justify-center"
         >
           Order
@@ -122,7 +122,7 @@ const ProductPage = () => {
         <div className="bg-sec rounded-full w-1/5 p-6">
           <img
             className="w-full cursor-pointer"
-            onClick={() => addToCart(id, selectedSize)}
+            // onClick={() => addToCart(documentId, selectedSize)}
             src={assets.basket}
             alt="basket"
           />
