@@ -48,7 +48,7 @@ const Home = () => {
       {/* end sold */}
       {/* products */}
       <div className='w-full'>
-        <div className='pl-6 flex gap-x-6.5 overflow-scroll'>
+        <div className='pl-6 py-1 flex gap-x-6.5 overflow-scroll'>
           {
             categories.map((categorie, index)=>(
               <div key={index} onClick={() => setSelectedCategorie(categorie)} className='py-1 cursor-pointer text-sm font-semibold shadow px-2 bg-sec rounded-full'>

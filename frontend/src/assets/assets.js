@@ -95,7 +95,7 @@ export const algerianWilayas = [
 ];
  
 
-export const categories = ['All', 'Topwear', 'Bottomwear', 'Winter', 'Summer', 'Newborns']
+export const categories = ['All', 'Garcon', 'Filles']
 
 export const products = [
     {

@@ -14,6 +14,8 @@ const SearchBar = ({data}) => {
     const searchLength = searchValue.length;
     if (searchLength > 0) {
       let filteredProducts = data.products.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase()));
+      console.log(filteredProducts);
+      
       setSearchResults(filteredProducts);
     } else {
       setSearchResults([]);
@@ -32,7 +34,7 @@ const SearchBar = ({data}) => {
               <Link onClick={() => {
                   setSearchValue("");
               }}
-                  to={`/product/${product.documentID}`} key={index} className='block p-2 hover:bg-gray-100'>
+                  to={`/product/${product.documentId}`} key={index} className='block p-2 hover:bg-gray-100'>
                   {product.name}
               </Link>
           )): null}

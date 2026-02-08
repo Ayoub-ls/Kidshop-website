@@ -29,21 +29,23 @@ const ProductPage = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState("");
 
-  const { id } = useParams(); // this is your documentId
+  const { documentId } = useParams(); // this is your documentId
   const { currency, onClickOrder, addToCart } =
     useContext(ProductContext);
 
   const { data, loading, error } = useQuery(GET_PRODUCT, {
-    variables: { documentId: id },
+    variables: { documentId: documentId },
   });
 
   if (loading) return <p className="p-4">Loading...</p>;
   if (error) return <p className="p-4">Error: {error.message}</p>;
 
-  // convert strapi image urls to full urls
+  
   const product = data?.product;
   const images =
     product?.images?.map((img) => img.url) || [];
+    console.log(product);
+    
 
   return (
     <div>
