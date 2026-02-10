@@ -5,6 +5,7 @@ import { ProductContext } from "../context/GlobalContext";
 import { gql } from "@apollo/client";
 import { STRAPI_URL } from "../App";
 import { useQuery } from "@apollo/client/react";
+import Loading from "../components/Loading";
 
 const GET_PRODUCT = gql`
   query GetProduct($documentId: ID!) {
@@ -37,7 +38,7 @@ const ProductPage = () => {
     variables: { documentId: documentId },
   });
 
-  if (loading) return <p className="p-4">Loading...</p>;
+  if (loading) return <div className="h-screen flex justify-center items-center"><Loading/></div>;
   if (error) return <p className="p-4">Error: {error.message}</p>;
 
   

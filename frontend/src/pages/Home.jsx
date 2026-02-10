@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client/react'
 import SearchBar from '../components/SearchBar'
 import  ProductList  from '../components/ProductList'
 import { gql } from '@apollo/client'
+import Loading from '../components/Loading'
 
 const GET_PRODUCTS = gql`
 query {
@@ -26,7 +27,7 @@ const Home = () => {
 
 
     if (loading) {
-    return <h2 className="mx-auto px-1">Loading...</h2>;
+    return <div className="h-screen flex justify-center items-center"><Loading/></div>;
   }
   
   if (error) {
